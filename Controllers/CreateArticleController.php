@@ -15,14 +15,15 @@ class CreateArticleController
     {
         $article = Article::create('Title', 'Body');
 
-        $article->upvote();
-        $article->upvote();
-        $article->downvote();
         $article->giveRating(5);
         $article->giveRating(5);
         $article->giveRating(3);
 
-        $this->serviceLocator['persistance']->set(rand(), $article);
+        $this->serviceLocator['persistence']->set(rand(), $article);
+
+        $data = ['article' => $article];
+
+        extract($data);
 
         ob_start();
 

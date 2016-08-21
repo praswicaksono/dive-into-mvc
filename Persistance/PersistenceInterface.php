@@ -1,6 +1,6 @@
 <?php
 
-interface PersistanceInterface
+interface PersistenceInterface
 {
     public function set($id, $data);
 

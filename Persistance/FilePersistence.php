@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__ . '/PersistanceInterface.php';
+require_once __DIR__ . '/PersistenceInterface.php';
 
-class FilePersistance implements PersistanceInterface
+class FilePersistence implements PersistenceInterface
 {
     private $dir = __DIR__ . '/data/';
 

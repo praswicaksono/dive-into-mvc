@@ -6,8 +6,6 @@ class Article
 
     private $body;
 
-    private $voteCount;
-
     private $ratings;
 
     private function __construct()
@@ -15,14 +13,13 @@ class Article
 
     }
 
-    public static function create($title, $body, $ratings = [], $voteCount = 0)
+    public static function create($title, $body, $ratings = [])
     {
         $object = new self();
 
         $object->title = $title;
         $object->body = $body;
         $object->ratings = $ratings;
-        $object->voteCount = $voteCount;
 
         return $object;
     }
@@ -47,16 +44,6 @@ class Article
         return $this->title;
     }
 
-    public function downvote()
-    {
-        $this->voteCount--;
-    }
-
-    public function upvote()
-    {
-        $this->voteCount++;
-    }
-
     public function giveRating($scale)
     {
         if ($scale < 0 || $scale > 5) {
@@ -74,10 +61,5 @@ class Article
         }
 
         return round($sumRating / count($this->ratings), 1);
-    }
-
-    public function voteCount()
-    {
-        return $this->voteCount;
     }
 }

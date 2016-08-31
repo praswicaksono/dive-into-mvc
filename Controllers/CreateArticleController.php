@@ -19,7 +19,7 @@ class CreateArticleController
         $article->giveRating(5);
         $article->giveRating(3);
 
-        $this->serviceLocator['persistence']->set(rand(), $article);
+        $this->serviceLocator->set(rand(), $article);
 
         $data = ['article' => $article];
 
